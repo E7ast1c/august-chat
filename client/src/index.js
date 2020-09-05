@@ -4,11 +4,20 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import configureStore from './store/configureStore'
+import { BrowserRouter as Router } from 'react-router-dom'
+import Root from './containers/Root'
+
+const store = configureStore()
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Router>
+    <React.StrictMode>
+      <App />
+      <Root store={store} />
+    </React.StrictMode>
+  </Router>,
+  
   document.getElementById('root')
 );
 
