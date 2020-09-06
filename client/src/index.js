@@ -13,7 +13,6 @@ const store = configureStore()
 ReactDOM.render(
   <Router>
     <React.StrictMode>
-      <App />
       <Root store={store} />
     </React.StrictMode>
   </Router>,

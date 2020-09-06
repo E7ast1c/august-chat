@@ -5,6 +5,10 @@ export const usersData = {
     email: ''
 }
 
+export const newUser = {
+  password: ''
+}
+
 export const checkUserData = {
     login: '',
     password: ''
