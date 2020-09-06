@@ -1,6 +1,5 @@
 export const usersData = {
     id: 0,
-    login: '',
     nickname: '',
     email: ''
 }
@@ -10,6 +9,6 @@ export const newUser = {
 }
 
 export const checkUserData = {
-    login: '',
+    email: '',
     password: ''
 }
