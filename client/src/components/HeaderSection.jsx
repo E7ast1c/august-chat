@@ -2,24 +2,27 @@ import React, { useState, } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, InputGroup, InputGroupAddon, Input } from 'reactstrap';
 import LogIn from './LogIn'
 import SignIn from './SignIn';
+import { useStore } from 'react-redux'
 
-function HeaderSection(){
-//   const [modal, setModal] = useState(false);
-//   const [channels, setChannels] = useState(props.usersList);
-//   const [addUser, setUser] = useState('');
-//   const [, forceUpdate] = useReducer(x => x + 1 , 0)
+function HeaderSection() {
+  const store = useStore()
+  const user = store.getState()
+  //   const [modal, setModal] = useState(false);
+  //   const [channels, setChannels] = useState(props.usersList);
+  //   const [addUser, setUser] = useState('');
+  //   const [, forceUpdate] = useReducer(x => x + 1 , 0)
 
-//   const addUserInList = (addUser, ) => {
-//     let tempUserList = channels;
-//     tempUserList.push(addUser.toString());
-//     setChannels(() => tempUserList )
-//     forceUpdate()
-//     setUser("")
-// }
+  //   const addUserInList = (addUser, ) => {
+  //     let tempUserList = channels;
+  //     tempUserList.push(addUser.toString());
+  //     setChannels(() => tempUserList )
+  //     forceUpdate()
+  //     setUser("")
+  // }
 
-//   const toggle = () => setModal(!modal);
+  //   const toggle = () => setModal(!modal);
 
-//   const closeBtn = <button className="close" onClick={toggle}>&times;</button>;
+  //   const closeBtn = <button className="close" onClick={toggle}>&times;</button>;
 
   return (
     <div className="d-flex justify-content-end">
