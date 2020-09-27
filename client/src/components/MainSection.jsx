@@ -5,13 +5,13 @@ const MainSection = (props) => {
    
   const [user, setUser] = useState([
     {
-      userId: 0,
+      userId: 1,
       nickname: "Anna",
       timestamp: 11,
-      text: "ololo"
+      text: "Hello Chat"
     },
     {
-      userId: 1,
+      userId: 2,
       nickname: "Alex",
       timestamp: 12,
       text: "Hi"
@@ -30,20 +30,13 @@ const MainSection = (props) => {
     height: 'content'
   }
 
-  const addCommit = (addMessage ) => {
-
-  }
-
-
-
-
-
 
   return (
     <div>
       <h2 className="mb-5">Chat</h2>
       <ListGroup>
         <h4 className="mb-0">{user[0].nickname}</h4>
+        <p>{user.[0].text}</p>
         <ListGroupItem className="w-50 border-0" ></ListGroupItem>
       </ListGroup>
       <FormGroup >
@@ -53,7 +46,7 @@ const MainSection = (props) => {
         value={addMessage.text}
         onChange={event => setMessage(event.target.value)}
         />
-        {console.log(addMessage)}
+        {console.log(addMessage.text)}
 
         <Button color="primary" 
         >
