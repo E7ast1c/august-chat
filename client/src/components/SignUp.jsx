@@ -3,7 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Label, I
 
 
 
-const SingIn = (props) => {
+const SingUp = (props) => {
   const {
     className
   } = props;
@@ -16,9 +16,9 @@ const SingIn = (props) => {
 
   return (
     <div>
-      <Button  className="mt-1 mr-1" color="secondary" onClick={toggle}>Sign In</Button>
+      <Button  className="mt-1 mr-1" color="secondary" onClick={toggle}>Sign Up</Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-          <ModalHeader toggle={toggle}>Sign In</ModalHeader>
+          <ModalHeader toggle={toggle}>Sign Up</ModalHeader>
           <ModalBody>
             <InputGroup style={{ display: 'grid' }}>
               <FormGroup>
@@ -46,4 +46,4 @@ const SingIn = (props) => {
     </div>
   )
 }
-export default SingIn;
+export default SingUp;
