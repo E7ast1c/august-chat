@@ -3,12 +3,14 @@ import logo from "./logo.svg";
 import "./App.css";
 import HeaderSection from "./components/HeaderSection.jsx";
 import AsideSection from "./components/AsideSection.jsx";
+import MainSection from "./components/MainSection.jsx";
+import FooterSection from "./components/FooterSection.jsx";
 import SetupSocket from "./mixins/sockets";
 
 function App() {
   useEffect(() => {
     SetupSocket();
-    console.log("effect");
+    console.log('effect');
   });
 
   return (
@@ -19,8 +21,8 @@ function App() {
       <aside>
         <AsideSection />
       </aside>
-      <main>Main</main>
-      <footer>Footer</footer>
+      <main><MainSection /></main>
+      <footer><FooterSection /></footer>
     </div>
   );
 }

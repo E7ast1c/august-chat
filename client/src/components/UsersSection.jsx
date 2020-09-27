@@ -1,8 +1,6 @@
-import React, { useState, useEffect, useCallback, useReducer } from 'react';
+import React, { useState, } from 'react';
 import {
-    Collapse, Navbar, NavbarBrand, Nav, NavItem, NavLink, InputGroup, InputGroupAddon,
-    Input, Button
-} from 'reactstrap';
+    Collapse, Navbar, NavbarBrand, Nav, NavItem, NavLink,} from 'reactstrap';
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 

@@ -1,7 +1,6 @@
-import React, { useState, } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, InputGroup, InputGroupAddon, Input } from 'reactstrap';
+import React from 'react';
 import LogIn from './LogIn'
-import SignIn from './SignIn';
+import SignUp from './SignUp';
 import { useStore } from 'react-redux'
 
 function HeaderSection() {
@@ -27,7 +26,7 @@ function HeaderSection() {
   return (
     <div className="d-flex justify-content-end">
       <LogIn />
-      <SignIn />
+      <SignUp />
       {/* <Button className="mr-1" color="primary" id="ScheduleUpdateTooltip" onClick={toggle}>{buttonLabel}Log In</Button>
       <Button className="mr-1" color="primary" id="ScheduleUpdateTooltip">Sing In</Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
