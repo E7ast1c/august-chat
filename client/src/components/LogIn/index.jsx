@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Label, InputGroup, Input } from 'reactstrap'
 import { useStore } from 'react-redux'
-import { createLoginUser } from '../actions/users'
+import { createLoginUser } from '../../actions/users'
 
 const LogIn = (props) => {
   const {

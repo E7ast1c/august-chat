@@ -4,6 +4,7 @@ import {
     Input, Button
 } from 'reactstrap';
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import s from './ChannelSection.module.css';
 
 const ChannelSection = (props) => {
     const [collapsed, setCollapsed] = useState(false);
