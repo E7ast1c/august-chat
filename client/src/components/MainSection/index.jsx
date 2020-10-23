@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { ListGroup, ListGroupItem, FormGroup, Input, InputGroup, InputGroupAddon, Button } from 'reactstrap';
 import s from './MainSection.module.css'
 import "../../App.css";
-
+import moment from 'moment'
 
 const MainSection = (props) => {
   const dummy = {
@@ -12,7 +12,7 @@ const MainSection = (props) => {
     text: "Hi"
   }
 
-  const [messagesList, setMessagesList] = useState([{ ...dummy}]);
+  const [messagesList, setMessagesList] = useState([{ ...dummy }]);
 
   const [message, setMessage] = useState('');
 
@@ -20,7 +20,7 @@ const MainSection = (props) => {
     userId: 2,
     nickname: "Alex",
     email: 'alex@mail.ru',
-    timestamp: new Date()
+    timestamp: moment().format('hh:mm DD.MM.YYYY'),
   }
 
 
@@ -30,7 +30,7 @@ const MainSection = (props) => {
       userId: 4,
       nickname: "Hohoho",
       text: message,
-      timestamp: new Date()
+      timestamp: moment().format('LT')
     }
 
     console.log(messagesList)
@@ -41,29 +41,33 @@ const MainSection = (props) => {
   const currentId = 4;
 
   const onEnter = (event) => {
-    if(event.key === 'Enter'){
-      addMessage()
+    if (event.key === 'Enter') {
+      addMessage(message)
+      setMessage('')
     }
-
   }
+
 
   return (
     <>
-      <h2 className={s.title}>Chat</h2>
       <div className={s.main}>
-      {messagesList.map((i) =>
-        <div className={currentId === i.userId ? s.currentUserChat : s.chat}>
-          <ListGroup className={currentId === i.userId ? s.currentUserchatMessage : s.chatMessage}>
-            <div className={s.chatContent}>
-              <span className={s.name}>{i.nickname}</span>
-              <p className={s.text}>{i.text}</p>
-              <span className={s.text}>{i.timestamp.toString()}</span>
+        <h2 className={s.title}>Chat</h2>
+        <div className={s.bodyChat}>
+          {messagesList.map((i) =>
+            <div className={currentId === i.userId ? s.currentUserChat : s.chat}>
+              <ListGroup className={currentId === i.userId ? s.currentUserchatMessage : s.chatMessage}>
+                <div className={s.chatContent}>
+                  <span className={s.name}>{i.nickname}</span>
+                  <p className={s.text}>{i.text}</p>
+                  <span className={s.text}>{i.timestamp.toString()}</span>
+                </div>
+              </ListGroup>
             </div>
-          </ListGroup>
+          )}
         </div>
-        )}
       </div>
-      
+
+
       <FormGroup className={s.formGroup} >
         <Input type="textarea"
           placeholder="Message..."
@@ -71,7 +75,6 @@ const MainSection = (props) => {
           value={message}
           onChange={event => setMessage(event.target.value)}
           onKeyPress={event => onEnter(event)}
-
         />
         <Button
           color="primary"
