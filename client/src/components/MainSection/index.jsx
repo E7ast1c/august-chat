@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef} from 'react'
 import { ListGroup, ListGroupItem, FormGroup, Input, InputGroup, InputGroupAddon, Button } from 'reactstrap';
 import s from './MainSection.module.css'
 import "../../App.css";
 import moment from 'moment'
+import { useReducer } from 'react';
+
+
 
 const MainSection = (props) => {
   const dummy = {
@@ -12,9 +15,24 @@ const MainSection = (props) => {
     text: "Hi"
   }
 
-  const [messagesList, setMessagesList] = useState([{ ...dummy }]);
+  const myRef = useRef(null);
+  const scrollToRef = () => {
+    console.log(myRef)
+    myRef.current.scroll(0,0)
+  }
 
+  
+  
+  const [messagesList, setMessagesList] = useState([{ ...dummy }]);
+  
   const [message, setMessage] = useState('');
+  
+  useEffect(() => {
+    
+  //  myRef.current.scrollIntoView({ behavior: 'smooth' })
+   myRef.current.scroll(0,myRef.current.scrollHeight)
+   console.log(myRef)
+  },[messagesList]);
 
   const testCurrentUser = {
     userId: 2,
@@ -33,28 +51,34 @@ const MainSection = (props) => {
       timestamp: moment().format('LT')
     }
 
-    console.log(messagesList)
+    // console.log(messagesList)
     setMessagesList([...messagesList, test])
     setMessage('')
   }
-
+  
   const currentId = 4;
 
+  
   const onEnter = (event) => {
     if (event.key === 'Enter') {
       addMessage(message)
       setMessage('')
+      // scrollToRef(myRef)
+      // console.log(' scrollToRef(myRef): ',  scrollToRef(myRef));
+      // console.log('ref');
     }
   }
 
 
+  
+  
   return (
-    <>
+    <div>
       <div className={s.main}>
         <h2 className={s.title}>Chat</h2>
-        <div className={s.bodyChat}>
-          {messagesList.map((i) =>
-            <div className={currentId === i.userId ? s.currentUserChat : s.chat}>
+        <div ref={myRef}  id={'myRef'}  className={s.bodyChat}>
+          {messagesList.map((i, index) =>
+            <div key={index} className={currentId === i.userId ? s.currentUserChat : s.chat}>
               <ListGroup className={currentId === i.userId ? s.currentUserchatMessage : s.chatMessage}>
                 <div className={s.chatContent}>
                   <span className={s.name}>{i.nickname}</span>
@@ -69,6 +93,7 @@ const MainSection = (props) => {
 
 
       <FormGroup className={s.formGroup} >
+        
         <Input type="textarea"
           placeholder="Message..."
           className={s.textarea}
@@ -79,13 +104,15 @@ const MainSection = (props) => {
         <Button
           color="primary"
           className={s.btn}
-          onClick={() => addMessage(message)}
+          onClick={() => { addMessage(message)
+            scrollToRef(myRef)
+          }}
         >
           Send
         </Button>
       </FormGroup>
 
-    </>
+    </div>
 
 
   )
