@@ -11,11 +11,13 @@ import Root from './containers/Root'
 const store = configureStore()
 
 ReactDOM.render(
-  <Router>
-    <React.StrictMode>
-      <Root store={store} />
-    </React.StrictMode>
-  </Router>,
+  <Router >
+      <React.StrictMode>
+          <Root store={store} >
+          </Root>
+      </React.StrictMode>
+  </Router>
+  ,
   
   document.getElementById('root')
 );

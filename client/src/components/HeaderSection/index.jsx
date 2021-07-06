@@ -1,7 +1,8 @@
 import React from 'react';
-import LogIn from './LogIn'
-import SignUp from './SignUp';
+import LogIn from '../LogIn'
+import SignUp from '../SignUp';
 import { useStore } from 'react-redux'
+import s from './HeaderSection.module.css'
 
 function HeaderSection() {
   const store = useStore()
@@ -24,7 +25,7 @@ function HeaderSection() {
   //   const closeBtn = <button className="close" onClick={toggle}>&times;</button>;
 
   return (
-    <div className="d-flex justify-content-end">
+    <div className={s.container}>
       <LogIn />
       <SignUp />
       {/* <Button className="mr-1" color="primary" id="ScheduleUpdateTooltip" onClick={toggle}>{buttonLabel}Log In</Button>
